@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="T & H Delivery — fast quotes for auction item delivery."
+    />
+    <title>T &amp; H Delivery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="T and H Delivery home">
+          <span class="brand-mark" aria-hidden="true">T&amp;H</span>
+          <span class="brand-text">T &amp; H Delivery</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-controls="site-nav"
+          aria-expanded="false"
+          data-nav-toggle
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" data-nav>
+          <a href="#tabs" data-nav-tab="about">About</a>
+          <a href="#tabs" data-nav-tab="how">How it works</a>
+          <a href="#tabs" data-nav-tab="quote">Get a quote</a>
+          <a href="#tabs" data-nav-tab="careers">Careers</a>
+          <a href="#tabs" data-nav-tab="contact" class="nav-cta">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="pill">Auction pickups • Fast quotes • Delivery to your door</p>
+            <h1>Auction item delivery made simple.</h1>
+            <p class="lede">
+              T &amp; H Delivery specializes in auction pickups. We collect your
+              items from the auction warehouse, load them into the right-size
+              vehicle, and deliver to your home or business with photo proof.
+            </p>
+
+            <p class="lede">
+              Pricing starts at <strong>$9.99 small</strong>, <strong>$19.99
+              medium</strong>, <strong>$29.99 large</strong>, and <strong>$39.99
+              extra-large</strong> for single items. For bulk loads (like 40+
+              smalls or mixed sizes), request a custom quote.
+            </p>
+
+            <p class="lede">
+              We offer big vehicles, prior-day pickups for next-day delivery, and
+              emailed pictures when your items are dropped off. We do require a
+              designated pickup area inside the auction warehouse for safe loading.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button primary" href="#tabs" data-nav-tab="quote">Request a quote</a>
+              <a class="button ghost" href="tel:+19095652355">Call 909-565-2355</a>
+            </div>
+
+            <dl class="hero-stats" aria-label="Quote highlights">
+              <div>
+                <dt>Quotes</dt>
+                <dd>Fast reply</dd>
+              </div>
+              <div>
+                <dt>Items</dt>
+                <dd>Small to bulky</dd>
+              </div>
+              <div>
+                <dt>Help</dt>
+                <dd>Loading options</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="tabs">
+        <div class="container">
+          <div class="tabs">
+            <div class="tab-list" role="tablist" aria-label="T &amp; H Delivery sections">
+              <button
+                class="tab is-active"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="tab-about"
+                data-tab="about"
+              >
+                About
+              </button>
+              <button
+                class="tab"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="tab-how"
+                data-tab="how"
+              >
+                How it works
+              </button>
+              <button
+                class="tab"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="tab-quote"
+                data-tab="quote"
+              >
+                Get a quote
+              </button>
+              <button
+                class="tab"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="tab-careers"
+                data-tab="careers"
+              >
+                Careers
+              </button>
+              <button
+                class="tab"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="tab-contact"
+                data-tab="contact"
+              >
+                Contact
+              </button>
+            </div>
+
+            <div class="tab-panels">
+              <section
+                class="tab-panel is-active"
+                id="tab-about"
+                role="tabpanel"
+                aria-labelledby="tab-about-label"
+                data-tab-panel="about"
+              >
+                <div class="section-head">
+                  <h2 id="tab-about-label">About T &amp; H Delivery</h2>
+                  <p class="muted">
+                    We focus on one thing: safely moving your auction wins from
+                    the warehouse to your door.
+                  </p>
+                </div>
+
+                <div class="grid3 about-grid">
+                  <article class="mini-card">
+                    <h3>What we offer</h3>
+                    <ul class="bullets">
+                      <li>Auction warehouse pickups</li>
+                      <li>Right-size vehicles for each load</li>
+                      <li>Email photo proof of delivery</li>
+                      <li>Designated pickup area in the warehouse</li>
+                    </ul>
+                  </article>
+
+                  <article class="mini-card">
+                    <h3>Simple pricing</h3>
+                    <ul class="bullets">
+                      <li>Small item — <strong>$9.99</strong></li>
+                      <li>Medium item — <strong>$19.99</strong></li>
+                      <li>Large item — <strong>$29.99</strong></li>
+                      <li>Extra-large — <strong>$39.99</strong></li>
+                    </ul>
+                    <p class="fineprint">
+                      Bulk or mixed-size loads (like 40 smalls) are quoted
+                      individually—use the quote tab.
+                    </p>
+                  </article>
+
+                  <article class="mini-card about-photos">
+                    <h3>How it looks in action</h3>
+                    <div class="about-photo-row">
+                      <figure class="about-photo">
+                        <img
+                          src="https://images.pexels.com/photos/5025662/pexels-photo-5025662.jpeg?auto=compress&cs=tinysrgb&w=600"
+                          alt="Driver loading packages into a delivery vehicle"
+                        />
+                      </figure>
+                      <figure class="about-photo">
+                        <img
+                          src="https://images.pexels.com/photos/6169664/pexels-photo-6169664.jpeg?auto=compress&cs=tinysrgb&w=600"
+                          alt="Warehouse aisle with stacked auction items ready for pickup"
+                        />
+                      </figure>
+                    </div>
+                    <div class="about-photo-row">
+                      <figure class="about-photo">
+                        <img
+                          src="https://images.pexels.com/photos/6169666/pexels-photo-6169666.jpeg?auto=compress&cs=tinysrgb&w=600"
+                          alt="Customer receiving a delivered package with proof-of-delivery photo"
+                        />
+                      </figure>
+                      <figure class="about-photo truck-photo">
+                        <div class="truck-overlay">
+                          <span class="truck-logo">T &amp; H Delivery</span>
+                          <span class="truck-text">Large vehicle fleet for big auction loads</span>
+                        </div>
+                        <img
+                          src="https://images.pexels.com/photos/4484078/pexels-photo-4484078.jpeg?auto=compress&cs=tinysrgb&w=800"
+                          alt="Large delivery truck representing T &amp; H Delivery fleet"
+                        />
+                      </figure>
+                    </div>
+                  </article>
+                </div>
+              </section>
+
+              <section
+                class="tab-panel"
+                id="tab-how"
+                role="tabpanel"
+                aria-labelledby="tab-how-label"
+                hidden
+                data-tab-panel="how"
+              >
+                <div class="section-head">
+                  <h2 id="tab-how-label">How it works</h2>
+                  <p class="muted">
+                    Three quick steps from auction pickup to delivery.
+                  </p>
+                </div>
+
+                <div class="grid3">
+                  <article class="feature">
+                    <h3>1) Request a quote</h3>
+                    <p class="muted">
+                      Send pickup and delivery info along with item details
+                      (dimensions or photos help).
+                    </p>
+                  </article>
+
+                  <article class="feature">
+                    <h3>2) We schedule pickup</h3>
+                    <p class="muted">
+                      We coordinate a pickup window with the auction company and
+                      confirm a designated loading area in their warehouse.
+                    </p>
+                  </article>
+
+                  <article class="feature">
+                    <h3>3) Delivery & proof</h3>
+                    <p class="muted">
+                      We use the right-size vehicle to deliver to your address
+                      and email photos as proof of delivery.
+                    </p>
+                  </article>
+                </div>
+              </section>
+
+              <section
+                class="tab-panel"
+                id="tab-quote"
+                role="tabpanel"
+                aria-labelledby="tab-quote-label"
+                hidden
+                data-tab-panel="quote"
+              >
+                <div class="section-head">
+                  <h2 id="tab-quote-label">Get a quote</h2>
+                  <p class="muted">
+                    If you don’t know the dimensions/weight, send photos and any
+                    notes—we can still quote.
+                  </p>
+                </div>
+
+                <div class="grid3">
+                  <article class="mini-card">
+                    <h3>Helpful to include</h3>
+                    <ul class="bullets">
+                      <li>Pickup auction company + address</li>
+                      <li>Pickup hours and warehouse pickup area</li>
+                      <li>Item size/weight (approx)</li>
+                      <li>Stairs, elevator, or gate code</li>
+                    </ul>
+                  </article>
+                  <article class="mini-card">
+                    <h3>Common loads</h3>
+                    <ul class="bullets">
+                      <li>Single furniture pieces</li>
+                      <li>Tools and equipment</li>
+                      <li>Boxes / fragile items</li>
+                      <li>Bulk lots (e.g. 40 smalls)</li>
+                    </ul>
+                  </article>
+                  <article class="mini-card">
+                    <h3>Bulk & mixed sizes</h3>
+                    <p class="muted">
+                      For multiple pieces or mixed sizes (small/medium/large/
+                      extra-large), we’ll put together a custom quote.
+                    </p>
+                  </article>
+                </div>
+
+                <div class="card">
+                  <h3 class="card-title">Quote request form</h3>
+                  <p class="muted">
+                    This is a static site. Submitting opens an email draft to
+                    send us your details at <strong>services@t&amp;hdelivery.com</strong>.
+                  </p>
+
+                  <form class="quote-form" data-quote-form data-mailto-form>
+                    <div class="two">
+                      <label class="field">
+                        <span>Name</span>
+                        <input name="name" autocomplete="name" required />
+                      </label>
+                      <label class="field">
+                        <span>Phone</span>
+                        <input
+                          name="phone"
+                          inputmode="tel"
+                          autocomplete="tel"
+                          placeholder="909-565-2355"
+                          required
+                        />
+                      </label>
+                    </div>
+
+                    <label class="field">
+                      <span>Email</span>
+                      <input name="email" type="email" autocomplete="email" required />
+                    </label>
+
+                    <label class="field">
+                      <span>Auction company / location</span>
+                      <input
+                        name="auction_location"
+                        placeholder="Company name + address"
+                        required
+                      />
+                    </label>
+
+                    <div class="two">
+                      <label class="field">
+                        <span>Delivery address</span>
+                        <input
+                          name="delivery_address"
+                          placeholder="Street, City"
+                          required
+                        />
+                      </label>
+                      <label class="field">
+                        <span>Preferred delivery date</span>
+                        <input name="preferred_date" type="date" />
+                      </label>
+                    </div>
+
+                    <div class="two">
+                      <label class="field">
+                        <span>Item description</span>
+                        <input
+                          name="item_description"
+                          placeholder="e.g. dresser, mirror, tool chest"
+                          required
+                        />
+                      </label>
+                      <label class="field">
+                        <span>Lot / invoice # (optional)</span>
+                        <input name="lot_number" placeholder="e.g. Lot 128" />
+                      </label>
+                    </div>
+
+                    <div class="three">
+                      <label class="field">
+                        <span>Length (in)</span>
+                        <input name="len_in" inputmode="numeric" placeholder="0" />
+                      </label>
+                      <label class="field">
+                        <span>Width (in)</span>
+                        <input name="wid_in" inputmode="numeric" placeholder="0" />
+                      </label>
+                      <label class="field">
+                        <span>Height (in)</span>
+                        <input name="ht_in" inputmode="numeric" placeholder="0" />
+                      </label>
+                    </div>
+
+                    <div class="two">
+                      <label class="field">
+                        <span>Approx weight (lbs)</span>
+                        <input name="weight_lbs" inputmode="numeric" placeholder="0" />
+                      </label>
+                      <label class="field">
+                        <span>Pickup help needed?</span>
+                        <select name="pickup_help" required>
+                          <option value="unknown">Not sure</option>
+                          <option value="no">No</option>
+                          <option value="yes_1">Yes — 1 person help</option>
+                          <option value="yes_2">Yes — 2 person help</option>
+                        </select>
+                      </label>
+                    </div>
+
+                    <label class="field">
+                      <span>Notes (optional)</span>
+                      <textarea
+                        name="notes"
+                        rows="3"
+                        placeholder="Stairs, gate code, fragile, need blanket wrap, loading dock, time window…"
+                      ></textarea>
+                    </label>
+
+                    <button class="button primary full" type="submit">
+                      Email for quote
+                    </button>
+                    <p class="fineprint" data-form-status aria-live="polite"></p>
+                  </form>
+                </div>
+              </section>
+
+              <section
+                class="tab-panel"
+                id="tab-careers"
+                role="tabpanel"
+                aria-labelledby="tab-careers-label"
+                hidden
+                data-tab-panel="careers"
+              >
+                <div class="careers">
+                  <div>
+                    <div class="section-head">
+                      <h2 id="tab-careers-label">Careers — drivers</h2>
+                      <p class="muted">
+                        Deliver auction items using your personal vehicle (similar to
+                        Amazon-style routes). Flexible availability. Paid per delivery.
+                      </p>
+                    </div>
+
+                    <div class="grid3">
+                      <article class="mini-card">
+                        <h3>Requirements</h3>
+                        <ul class="bullets">
+                          <li>Valid driver’s license</li>
+                          <li>Reliable personal vehicle</li>
+                          <li>Smartphone for dispatch</li>
+                        </ul>
+                      </article>
+                      <article class="mini-card">
+                        <h3>Nice to have</h3>
+                        <ul class="bullets">
+                          <li>Straps / blankets</li>
+                          <li>Dolly / hand truck</li>
+                          <li>Customer service mindset</li>
+                        </ul>
+                      </article>
+                      <article class="mini-card">
+                        <h3>What you’ll do</h3>
+                        <ul class="bullets">
+                          <li>Pickup from auction companies</li>
+                          <li>Deliver to homes/businesses</li>
+                          <li>Confirm drop-off with customer</li>
+                        </ul>
+                      </article>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <h3 class="card-title">Driver application</h3>
+                    <p class="muted">
+                      Submitting opens an email draft. Please attach your resume
+                      before you send the email.
+                    </p>
+
+                    <form class="quote-form" data-driver-form data-mailto-form>
+                      <div class="two">
+                        <label class="field">
+                          <span>Name</span>
+                          <input name="name" autocomplete="name" required />
+                        </label>
+                        <label class="field">
+                          <span>Phone</span>
+                          <input
+                            name="phone"
+                            inputmode="tel"
+                            autocomplete="tel"
+                            required
+                          />
+                        </label>
+                      </div>
+
+                      <label class="field">
+                        <span>Email</span>
+                        <input
+                          name="email"
+                          type="email"
+                          autocomplete="email"
+                          required
+                        />
+                      </label>
+
+                      <div class="two">
+                        <label class="field">
+                          <span>City</span>
+                          <input name="city" placeholder="Your city" required />
+                        </label>
+                        <label class="field">
+                          <span>Vehicle type</span>
+                          <select name="vehicle" required>
+                            <option value="sedan">Sedan</option>
+                            <option value="suv">SUV</option>
+                            <option value="van">Van</option>
+                            <option value="pickup">Pickup truck</option>
+                            <option value="other">Other</option>
+                          </select>
+                        </label>
+                      </div>
+
+                      <div class="two">
+                        <label class="field">
+                          <span>Available days</span>
+                          <input
+                            name="availability"
+                            placeholder="e.g. Mon–Fri, weekends"
+                          />
+                        </label>
+                        <label class="field">
+                          <span>Can lift 50+ lbs?</span>
+                          <select name="lift" required>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                          </select>
+                        </label>
+                      </div>
+
+                      <label class="field">
+                        <span>Resume / experience</span>
+                        <textarea
+                          name="resume_summary"
+                          rows="4"
+                          placeholder="Paste resume text or summarize your driving/delivery experience. Attach your full resume in your email app."
+                          required
+                        ></textarea>
+                      </label>
+
+                      <label class="field">
+                        <span>Attach your resume (optional)</span>
+                        <input
+                          name="resume_file"
+                          type="file"
+                          accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
+                        />
+                        <span class="fineprint">
+                          After the email window opens, please make sure your resume file
+                          is attached before sending.
+                        </span>
+                      </label>
+
+                      <button class="button primary full" type="submit">
+                        Email application
+                      </button>
+                      <p class="fineprint" data-form-status aria-live="polite"></p>
+                    </form>
+                  </div>
+                </div>
+              </section>
+
+              <section
+                class="tab-panel"
+                id="tab-contact"
+                role="tabpanel"
+                aria-labelledby="tab-contact-label"
+                hidden
+                data-tab-panel="contact"
+              >
+                <div class="contact">
+                  <div>
+                    <div class="section-head">
+                      <h2 id="tab-contact-label">Contact</h2>
+                      <p class="muted">
+                        Call or email anytime. For detailed quotes, the quote form
+                        tab is best.
+                      </p>
+                    </div>
+
+                    <div class="contact-list" aria-label="Contact methods">
+                      <div class="contact-item">
+                        <span class="contact-k">Email</span>
+                        <a href="mailto:peke9013@gmail.com">services@t&amp;hdelivery.com</a>
+                      </div>
+                      <div class="contact-item">
+                        <span class="contact-k">Phone</span>
+                        <a href="tel:+19095652355">909-565-2355</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <h3 class="card-title">Quick actions</h3>
+                    <p class="muted">
+                      Tap to call, or email us your auction pickup and delivery info.
+                    </p>
+                    <div class="hero-actions">
+                      <a class="button primary full" href="tel:+19095652355">
+                        Call 909-565-2355
+                      </a>
+                      <a class="button ghost full" href="mailto:peke909@gmail.com">
+                        Email us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <div class="brand footer-brand">
+            <span class="brand-mark" aria-hidden="true">T&amp;H</span>
+            <span class="brand-text">T &amp; H Delivery</span>
+          </div>
+          <p class="muted">
+            Auction item pickup and delivery. Replace this demo content with your
+            company details and service area.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="#tabs" data-nav-tab="about">About</a>
+          <a href="#tabs" data-nav-tab="quote">Get a quote</a>
+          <a href="#tabs" data-nav-tab="careers">Careers</a>
+          <a href="#tabs" data-nav-tab="contact">Contact</a>
+          <a href="#top">Back to top</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span class="muted">© <span data-year></span> T &amp; H Delivery</span>
+        <span class="muted">Built as a static site</span>
+      </div>
+    </footer>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
