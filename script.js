@@ -22,48 +22,33 @@ function formToLines(form) {
   return lines;
 }
 
-const TAB_LABELS = {
-  about: "About",
-  how: "How it works",
-  quote: "Get a quote",
-  careers: "Careers",
-  contact: "Contact",
-};
-
 function initNav() {
-  const dropdown = document.querySelector("[data-nav-dropdown]");
-  const trigger = document.querySelector("[data-nav-trigger]");
-  const menu = document.querySelector("[data-nav-menu]");
-  const labelEl = document.querySelector("[data-nav-label]");
-  if (!dropdown || !trigger || !menu || !labelEl) return;
+  const header = document.querySelector("[data-header]");
+  const toggle = document.querySelector("[data-nav-toggle]");
+  const nav = document.querySelector("[data-nav]");
+  if (!header || !toggle || !nav) return;
 
   function setOpen(isOpen) {
-    trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    menu.hidden = !isOpen;
-    dropdown.classList.toggle("is-open", isOpen);
+    header.dataset.navOpen = isOpen ? "true" : "false";
+    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
   }
 
   setOpen(false);
 
-  trigger.addEventListener("click", (e) => {
-    e.stopPropagation();
-    setOpen(menu.hidden);
+  toggle.addEventListener("click", () => {
+    const openNow = header.dataset.navOpen === "true";
+    setOpen(!openNow);
   });
 
-  menu.addEventListener("click", (e) => {
-    const a = e.target.closest("a[data-nav-tab]");
+  nav.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
     if (!a) return;
     setOpen(false);
   });
 
-  document.addEventListener("click", () => setOpen(false));
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") setOpen(false);
   });
-
-  window.__updateNavLabel = function (name) {
-    labelEl.textContent = TAB_LABELS[name] || name;
-  };
 }
 
 function initTabs() {
@@ -91,10 +76,6 @@ function initTabs() {
       const match = link.getAttribute("data-nav-tab") === name;
       link.classList.toggle("nav-active", match);
     });
-
-    if (typeof window.__updateNavLabel === "function") {
-      window.__updateNavLabel(name);
-    }
   }
 
   tabs.forEach((tab) => {
