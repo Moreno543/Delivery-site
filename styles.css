@@ -700,22 +700,32 @@ textarea:focus {
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.14);
+  display: block;
+}
+
+.about-photo-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.about-photo-link:hover {
+  border-color: rgba(124, 92, 255, 0.5);
 }
 
 .about-photo img {
   display: block;
   width: 100%;
-  height: 120px;
+  height: 160px;
   object-fit: cover;
-  transition: transform 160ms ease-out;
+  transition: transform 200ms ease-out;
 }
 
 .about-photo:hover img {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .truck-photo {
-  min-height: 120px;
+  min-height: 160px;
 }
 
 .truck-overlay {
