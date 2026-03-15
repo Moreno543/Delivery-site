@@ -119,51 +119,86 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 14px;
+  padding: 10px 16px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--text);
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .nav-current:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.nav-dropdown.is-open .nav-current {
+  background: rgba(124, 92, 255, 0.2);
+  border-color: rgba(124, 92, 255, 0.5);
+  box-shadow: 0 0 0 1px rgba(124, 92, 255, 0.3);
+}
+
+.nav-chevron {
+  transition: transform 0.2s ease;
+}
+
+.nav-dropdown.is-open .nav-chevron {
+  transform: rotate(180deg);
 }
 
 .nav-menu {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 6px);
   right: 0;
-  margin-top: 8px;
-  min-width: 180px;
-  padding: 8px;
+  min-width: 200px;
+  padding: 6px;
   border-radius: 14px;
-  background: rgba(7, 10, 20, 0.98);
+  background: rgba(12, 15, 28, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
   list-style: none;
-  z-index: 100;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  pointer-events: none;
 }
 
-.nav-menu[hidden] {
-  display: none;
+.nav-dropdown.is-open .nav-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.nav-menu li {
+  margin: 0;
 }
 
 .nav-menu a {
   display: block;
-  padding: 10px 12px;
+  padding: 12px 14px;
   border-radius: 10px;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.92);
   font-weight: 600;
   font-size: 14px;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .nav-menu a:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(124, 92, 255, 0.15);
+  color: #fff;
   text-decoration: none;
+}
+
+.nav-menu a:active {
+  background: rgba(124, 92, 255, 0.25);
 }
 
 .partner-logo {

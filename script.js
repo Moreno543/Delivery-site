@@ -59,17 +59,17 @@ function initNavDropdown() {
   if (!dropdown || !trigger || !menu) return;
 
   function setOpen(isOpen) {
+    dropdown.classList.toggle("is-open", isOpen);
     trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    menu.toggleAttribute("hidden", !isOpen);
-    dropdown.dataset.open = isOpen ? "true" : "false";
+    menu.setAttribute("aria-hidden", isOpen ? "false" : "true");
   }
 
   setOpen(false);
 
   trigger.addEventListener("click", (e) => {
+    e.preventDefault();
     e.stopPropagation();
-    const openNow = dropdown.dataset.open === "true";
-    setOpen(!openNow);
+    setOpen(!dropdown.classList.contains("is-open"));
   });
 
   menu.addEventListener("click", (e) => {
