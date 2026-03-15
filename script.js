@@ -1,9 +1,8 @@
 const CONTACT_EMAIL = "peke9013@gmail.com";
 
-// Formspree endpoint for driver applications (supports file attachments).
-// Create a form at https://formspree.io and paste your endpoint here, e.g.:
-// "https://formspree.io/f/xyzabc"
-const FORMSPREE_DRIVER_ENDPOINT = "";
+// FormSubmit.co sends driver applications directly to your email (no mailto popup).
+// First-time setup: FormSubmit will send an activation email to peke9013@gmail.com — click the link once to activate.
+const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/" + CONTACT_EMAIL;
 
 const FIELD_LABELS = {
   name: "Full Name",
@@ -164,24 +163,29 @@ function initMailtoForms() {
       e.preventDefault();
 
       const isDriverForm = form.hasAttribute("data-driver-form");
-      const useFormspree = isDriverForm && FORMSPREE_DRIVER_ENDPOINT && !FORMSPREE_DRIVER_ENDPOINT.includes("YOUR_");
 
-      if (useFormspree) {
+      if (isDriverForm) {
         if (submitBtn) {
           submitBtn.disabled = true;
           submitBtn.textContent = "Submitting…";
         }
-        if (status) status.textContent = "";
-        status?.classList?.remove("form-success", "form-error");
+        if (status) {
+          status.textContent = "";
+          status.classList.remove("form-success", "form-error");
+        }
+
+        const formData = new FormData(form);
+        formData.set("_subject", "Driver Application — T & H Delivery");
+        formData.set("_template", "table");
 
         try {
-          const res = await fetch(FORMSPREE_DRIVER_ENDPOINT, {
+          const res = await fetch(FORMSUBMIT_ENDPOINT, {
             method: "POST",
-            body: new FormData(form),
+            body: formData,
             headers: { Accept: "application/json" },
           });
 
-          const data = await res.json();
+          const data = await res.json().catch(() => ({}));
 
           if (res.ok) {
             if (status) {
@@ -190,7 +194,7 @@ function initMailtoForms() {
             }
             form.reset();
           } else {
-            throw new Error(data.error || "Submission failed");
+            throw new Error(data.message || "Submission failed");
           }
         } catch (err) {
           if (status) {
