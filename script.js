@@ -51,6 +51,45 @@ function initNav() {
   });
 }
 
+function initNavDropdown() {
+  const dropdown = document.querySelector("[data-nav-dropdown]");
+  const trigger = document.querySelector("[data-nav-trigger]");
+  const menu = document.querySelector("[data-nav-menu]");
+  const label = document.querySelector("[data-nav-label]");
+  if (!dropdown || !trigger || !menu) return;
+
+  function setOpen(isOpen) {
+    trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    menu.toggleAttribute("hidden", !isOpen);
+    dropdown.dataset.open = isOpen ? "true" : "false";
+  }
+
+  setOpen(false);
+
+  trigger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const openNow = dropdown.dataset.open === "true";
+    setOpen(!openNow);
+  });
+
+  menu.addEventListener("click", (e) => {
+    const a = e.target.closest("a[data-nav-tab]");
+    if (a) {
+      const tabName = a.getAttribute("data-nav-tab");
+      const labels = { about: "About", how: "How it works", careers: "Careers", contact: "Contact" };
+      if (label && labels[tabName]) label.textContent = labels[tabName];
+      setOpen(false);
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) setOpen(false);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
+}
+
 function initTabs() {
   const tabsRoot = document.querySelector("#tabs");
   if (!tabsRoot) return;
@@ -141,6 +180,7 @@ function initYear() {
 }
 
 initNav();
+initNavDropdown();
 initTabs();
 initMailtoForms();
 initYear();
