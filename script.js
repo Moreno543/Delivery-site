@@ -1,14 +1,28 @@
 const CONTACT_EMAIL = "peke9013@gmail.com";
 
+// Formspree endpoint for driver applications (supports file attachments).
+// Create a form at https://formspree.io and paste your endpoint here, e.g.:
+// "https://formspree.io/f/xyzabc"
+const FORMSPREE_DRIVER_ENDPOINT = "";
+
+const FIELD_LABELS = {
+  name: "Full Name",
+  phone: "Phone",
+  email: "Email",
+  city: "City",
+  vehicle: "Vehicle Type",
+  availability: "Available Days",
+  lift: "Can lift 50+ lbs",
+  resume_summary: "Experience Summary",
+};
+
 function buildMailto({ to, subject, body }) {
-  const qs = new URLSearchParams({
-    subject,
-    body,
-  });
-  return `mailto:${encodeURIComponent(to)}?${qs.toString()}`;
+  const encodedBody = encodeURIComponent(body);
+  const encodedSubject = encodeURIComponent(subject);
+  return `mailto:${encodeURIComponent(to)}?subject=${encodedSubject}&body=${encodedBody}`;
 }
 
-function formToLines(form) {
+function formToBody(form) {
   const data = new FormData(form);
   const lines = [];
 
@@ -16,10 +30,11 @@ function formToLines(form) {
     if (raw instanceof File) continue;
     const value = String(raw ?? "").trim();
     if (!value) continue;
-    lines.push(`${key.replaceAll("_", " ")}: ${value}`);
+    const label = FIELD_LABELS[key] || key.replaceAll("_", " ");
+    lines.push(`${label}: ${value}`);
   }
 
-  return lines;
+  return lines.join("\n\n");
 }
 
 function initNav() {
@@ -143,19 +158,60 @@ function initMailtoForms() {
 
   forms.forEach((form) => {
     const status = form.querySelector("[data-form-status]");
+    const submitBtn = form.querySelector('button[type="submit"]');
 
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      const isDriverForm = form.hasAttribute("data-driver-form");
+      const useFormspree = isDriverForm && FORMSPREE_DRIVER_ENDPOINT && !FORMSPREE_DRIVER_ENDPOINT.includes("YOUR_");
+
+      if (useFormspree) {
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Submitting…";
+        }
+        if (status) status.textContent = "";
+        status?.classList?.remove("form-success", "form-error");
+
+        try {
+          const res = await fetch(FORMSPREE_DRIVER_ENDPOINT, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { Accept: "application/json" },
+          });
+
+          const data = await res.json();
+
+          if (res.ok) {
+            if (status) {
+              status.textContent = "Thank you for your application. We have received it and will be reviewing your resume. We will be in touch soon.";
+              status.classList.add("form-success");
+            }
+            form.reset();
+          } else {
+            throw new Error(data.error || "Submission failed");
+          }
+        } catch (err) {
+          if (status) {
+            status.textContent = "Something went wrong. Please email us directly at " + CONTACT_EMAIL + " with your resume attached.";
+            status.classList.add("form-error");
+          }
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Submit application";
+          }
+        }
+        return;
+      }
 
       const isQuote = form.hasAttribute("data-quote-form");
       const subject = isQuote
         ? "Quote request — auction item delivery"
-        : "Driver application — T & H Delivery";
+        : "Driver Application — T & H Delivery";
 
-      const lines = formToLines(form);
-      const body = lines.length
-        ? lines.join("\n")
-        : "Submitted from website form.";
+      const body = formToBody(form) || "Submitted from website form.";
 
       const href = buildMailto({
         to: CONTACT_EMAIL,
@@ -164,8 +220,7 @@ function initMailtoForms() {
       });
 
       if (status) {
-        status.textContent =
-          "Opening your email app with the details. If it doesn't open, email us directly.";
+        status.textContent = "Your email client is opening. Please attach your resume before sending.";
       }
 
       window.location.href = href;
